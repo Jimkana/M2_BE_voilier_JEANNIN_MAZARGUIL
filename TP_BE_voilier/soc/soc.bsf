@@ -1,0 +1,162 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 688 440)
+	(text "soc" (rect 334 -1 348 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 424 20 436)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "bus_avalon_0_conduit_end_export" (rect 0 0 140 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_0_conduit_end_export" (rect 4 61 190 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 288 72)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "bus_avalon_f2_0_conduit_end_export" (rect 0 0 154 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f2_0_conduit_end_export" (rect 4 101 208 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 288 112)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(input)
+		(text "bus_avalon_f7_0_conduit_end_bp_stby_i" (rect 0 0 169 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f7_0_conduit_end_bp_stby_i" (rect 4 141 226 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 288 152)(line_width 1))
+	)
+	(port
+		(pt 0 168)
+		(input)
+		(text "bus_avalon_f7_0_conduit_end_bp_babord_i" (rect 0 0 179 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f7_0_conduit_end_bp_babord_i" (rect 4 157 238 168)(font "Arial" (font_size 8)))
+		(line (pt 0 168)(pt 288 168)(line_width 1))
+	)
+	(port
+		(pt 0 184)
+		(input)
+		(text "bus_avalon_f7_0_conduit_end_bp_tribord_i" (rect 0 0 177 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f7_0_conduit_end_bp_tribord_i" (rect 4 173 244 184)(font "Arial" (font_size 8)))
+		(line (pt 0 184)(pt 288 184)(line_width 1))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "buttons_export" (rect 0 0 59 12)(font "Arial" (font_size 8)))
+		(text "buttons_export" (rect 4 277 88 288)(font "Arial" (font_size 8)))
+		(line (pt 0 288)(pt 288 288)(line_width 1))
+	)
+	(port
+		(pt 0 328)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 317 46 328)(font "Arial" (font_size 8)))
+		(line (pt 0 328)(pt 288 328)(line_width 1))
+	)
+	(port
+		(pt 0 408)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 397 82 408)(font "Arial" (font_size 8)))
+		(line (pt 0 408)(pt 288 408)(line_width 1))
+	)
+	(port
+		(pt 0 200)
+		(output)
+		(text "bus_avalon_f7_0_conduit_end_ledbabord_o" (rect 0 0 178 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f7_0_conduit_end_ledbabord_o" (rect 4 189 238 200)(font "Arial" (font_size 8)))
+		(line (pt 0 200)(pt 288 200)(line_width 1))
+	)
+	(port
+		(pt 0 216)
+		(output)
+		(text "bus_avalon_f7_0_conduit_end_ledstby_o" (rect 0 0 168 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f7_0_conduit_end_ledstby_o" (rect 4 205 226 216)(font "Arial" (font_size 8)))
+		(line (pt 0 216)(pt 288 216)(line_width 1))
+	)
+	(port
+		(pt 0 232)
+		(output)
+		(text "bus_avalon_f7_0_conduit_end_ledtribord_o" (rect 0 0 175 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f7_0_conduit_end_ledtribord_o" (rect 4 221 244 232)(font "Arial" (font_size 8)))
+		(line (pt 0 232)(pt 288 232)(line_width 1))
+	)
+	(port
+		(pt 0 248)
+		(output)
+		(text "bus_avalon_f7_0_conduit_end_writeresponsevalid_n" (rect 0 0 212 12)(font "Arial" (font_size 8)))
+		(text "bus_avalon_f7_0_conduit_end_writeresponsevalid_n" (rect 4 237 292 248)(font "Arial" (font_size 8)))
+		(line (pt 0 248)(pt 288 248)(line_width 1))
+	)
+	(port
+		(pt 0 368)
+		(output)
+		(text "leds_export[7..0]" (rect 0 0 66 12)(font "Arial" (font_size 8)))
+		(text "leds_export[7..0]" (rect 4 357 106 368)(font "Arial" (font_size 8)))
+		(line (pt 0 368)(pt 288 368)(line_width 3))
+	)
+	(drawing
+		(text "bus_avalon_0_conduit_end" (rect 130 43 404 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 293 67 622 144)(font "Arial" (color 0 0 0)))
+		(text "bus_avalon_f2_0_conduit_end" (rect 110 83 382 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 293 107 622 224)(font "Arial" (color 0 0 0)))
+		(text "bus_avalon_f7_0_conduit_end" (rect 110 123 382 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "bp_stby_i" (rect 293 147 640 304)(font "Arial" (color 0 0 0)))
+		(text "bp_babord_i" (rect 293 163 652 336)(font "Arial" (color 0 0 0)))
+		(text "bp_tribord_i" (rect 293 179 658 368)(font "Arial" (color 0 0 0)))
+		(text "ledbabord_o" (rect 293 195 652 400)(font "Arial" (color 0 0 0)))
+		(text "ledstby_o" (rect 293 211 640 432)(font "Arial" (color 0 0 0)))
+		(text "ledtribord_o" (rect 293 227 658 464)(font "Arial" (color 0 0 0)))
+		(text "writeresponsevalid_n" (rect 293 243 706 496)(font "Arial" (color 0 0 0)))
+		(text "buttons" (rect 246 259 534 531)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 293 283 622 576)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 273 299 564 611)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 293 323 604 656)(font "Arial" (color 0 0 0)))
+		(text "leds" (rect 265 339 554 691)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 293 363 622 736)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 259 379 548 771)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 293 403 628 816)(font "Arial" (color 0 0 0)))
+		(text " soc " (rect 670 424 1370 858)(font "Arial" ))
+		(line (pt 288 32)(pt 400 32)(line_width 1))
+		(line (pt 400 32)(pt 400 424)(line_width 1))
+		(line (pt 288 424)(pt 400 424)(line_width 1))
+		(line (pt 288 32)(pt 288 424)(line_width 1))
+		(line (pt 289 52)(pt 289 76)(line_width 1))
+		(line (pt 290 52)(pt 290 76)(line_width 1))
+		(line (pt 289 92)(pt 289 116)(line_width 1))
+		(line (pt 290 92)(pt 290 116)(line_width 1))
+		(line (pt 289 132)(pt 289 252)(line_width 1))
+		(line (pt 290 132)(pt 290 252)(line_width 1))
+		(line (pt 289 268)(pt 289 292)(line_width 1))
+		(line (pt 290 268)(pt 290 292)(line_width 1))
+		(line (pt 289 308)(pt 289 332)(line_width 1))
+		(line (pt 290 308)(pt 290 332)(line_width 1))
+		(line (pt 289 348)(pt 289 372)(line_width 1))
+		(line (pt 290 348)(pt 290 372)(line_width 1))
+		(line (pt 289 388)(pt 289 412)(line_width 1))
+		(line (pt 290 388)(pt 290 412)(line_width 1))
+		(line (pt 0 0)(pt 688 0)(line_width 1))
+		(line (pt 688 0)(pt 688 440)(line_width 1))
+		(line (pt 0 440)(pt 688 440)(line_width 1))
+		(line (pt 0 0)(pt 0 440)(line_width 1))
+	)
+)

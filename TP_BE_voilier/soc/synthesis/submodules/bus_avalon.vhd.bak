@@ -1,0 +1,80 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity bus_avalon is
+    port (
+        arst_i 		: in std_logic;
+        clk_i			: in std_logic;
+        address_i 	: in std_logic_vector(0 downto 0);
+        write_data_i : in std_logic_vector(31 downto 0);
+        write_i 		: in std_logic;
+		  pwm_i			: in std_logic; 		-- on garde dans l'entité uniquement les entrées physiques du composant
+		  
+        read_data_o 		: out std_logic_vector(31 downto 0)
+    );
+end entity bus_avalon;
+
+architecture rtl of bus_avalon is
+    component Conversion_Adaptation
+		 port (
+			  clk_i           : in std_logic;
+			  arst_i          : in std_logic;
+			  in_pwm_compas_i : in std_logic;
+			  continu_i       : in std_logic;
+			  start_stop_i    : in std_logic;
+
+			  data_valid_o    : out std_logic;
+			  out_1s_o        : out std_logic;
+			  data_compas_o 	: out std_logic_vector (8 downto 0)
+		 );
+    end component;
+	 signal continu, start_stop, out_1s : std_logic;
+	 signal data_valid 	: std_logic;
+	 signal data_compas 	: std_logic_vector(8 downto 0);
+	 signal st_cont_raz 	: std_logic_vector (31 downto 0);
+	 signal valid_compas : std_logic_vector (31 downto 0);
+	 
+begin
+	 valid_compas(9 downto 0) <= data_valid & data_compas;
+	 
+	 -- récupération des signaux du bus avalon (entrées)
+    process (clk_i, arst_i)
+    begin
+        if (arst_i = '1') then
+            --duty <= (others => '0');
+            --freq <= (others => '1');
+        elsif rising_edge(clk_i) then
+            if write_i = '1' then
+                case to_integer(unsigned(address_i)) is
+                    when 16#00# =>
+                        arst_i <= write_data_i(0);
+								continu <= write_data_i(1);
+								start_stop <= write_data_i(2);
+                    --when 16#01# =>
+                        --freq <= write_data_i;
+                    when others =>
+                end case;
+            end if;
+        end if;
+    end process;
+
+	 -- écriture des signaux sur le bus avalon (sorties)
+    read_data_o <= 
+        valid_compas when unsigned(address_i) = 16#01#;
+
+	-- Instanciation du composant pwm
+   cap_inst : component Conversion_Adaptation
+		port map (
+			clk_i          	=>	clk_i,
+         arst_i          	=>	arst_i,
+         in_pwm_compas_i 	=>	pwm_i,
+         continu_i       	=>	continu,
+			start_stop_i    	=>	start_stop,
+
+			data_valid_o    	=>	data_valid,
+			out_1s_o       	=>	out_1s,
+			data_compas_o 		=>	data_compas
+		);
+
+end architecture rtl;

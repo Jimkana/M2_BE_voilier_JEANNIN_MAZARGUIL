@@ -1,0 +1,36 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity is
+    port (
+        clk_i           : in std_logic;
+        raz_n_i         : in std_logic;
+        btn_STBY_i      : in std_logic; 
+        btn_babord_i    : in std_logic;
+        btn_tribord_i   : in std_logic;
+        
+        ledBabord_o     : out std_logic;
+        ledTribord_o    : out std_logic;
+        ledSTBY_o       : out std_logic
+    );
+end entity;
+
+
+architecture rtl of gestion_leds is
+    
+begin
+    
+    -- led STBY clignotante + leds babord et tribord faiblement éclairées : mode veille
+    -- led STBY allumée : mode auto
+    -- leds allumées (babord ou tribord) lors de l'appui sur le bouton correspondant
+    process (clk_i, btn_STBY_i, btn_babord_i, btn_tribord_i)
+    begin
+        if(btn_babord_i = '1') then
+            ledBabord_o <= '1';
+        elsif (btn_tribord_i = '1') then
+            ledTribord_o <= '1';
+        end if;
+    end process;
+    
+end architecture rtl;

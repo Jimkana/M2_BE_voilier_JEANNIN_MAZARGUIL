@@ -1,0 +1,46 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity cascadeCompteurs is
+    port(
+        clk_i : in std_logic;
+        pwm_i : in std_logic;
+        
+        temps_ms_o : out std_logic_vector(5 downto 0)
+    );
+end entity cascadeCompteurs;
+
+architecture rtl of cascadeCompteurs is
+    signal ms : std_logic_vector(25 downto 0);
+    signal rst_comp : std_logic;
+
+begin
+
+        --UUT
+    counter_inst_cascade : entity work.counter
+    generic map (
+        N => 6 -- max 36ms 
+    )
+    port map (
+        clk_i => rst_comp,
+        srst_i => not(pwm_i),
+        en_i => pwm_i,
+        qn_o => temps_ms_o
+    );
+
+    counter_inst_horloge : entity work.counter
+    generic map (
+        N => 16 -- on veux compter jusqu'a 1ms (--> 50 000 coup d'horloge) donc on a besoin de 16 bits
+    )
+    port map (
+        clk_i => clk_i,
+        srst_i => rst_comp,
+        en_i => '1',
+        qn_o => ms
+    );
+	
+       
+	rst_comp <= '1' when unsigned(sec) >= 49999 else '0'; -- sur 16 bit = 65 535 or on veux s'arrêter à 1ms soit à 50 000 - 1 = 49 999 (-1 car on commence à compter à 0)  
+
+    end architecture rtl;

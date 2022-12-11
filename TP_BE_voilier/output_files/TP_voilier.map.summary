@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Dec 09 17:29:04 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : TP_voilier
+Top-level Entity Name : soc
+Family : Cyclone IV E
+Total logic elements : 3,617
+    Total combinational functions : 2,925
+    Dedicated logic registers : 2,111
+Total registers : 2111
+Total pins : 20
+Total virtual pins : 0
+Total memory bits : 309,248
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

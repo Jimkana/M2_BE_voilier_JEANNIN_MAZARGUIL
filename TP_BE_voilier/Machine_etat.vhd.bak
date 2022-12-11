@@ -1,0 +1,59 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Machine_etat is
+    port (
+        clk_i           : in std_logic;
+        raz_i           : in std_logic;
+        appui_btn_i     : in std_logic_vector(1 downto 0);
+
+        codeFonction_o  : out std_logic_vector (3 downto 0);
+        cap_valid_o     : out std_logic
+    );
+end entity;
+
+
+architecture rtl of Machine_etat is
+    type state_t is (st_STBY, st_AUTO);  -- définition des états
+    signal current_st, next_st : state_t := st_STBY;
+    --signal acquisition_1fois : std_logic := '1';
+begin
+    -- Decodage de l'etat suivant 
+    process(current_st)
+    begin
+        case current_st is
+            when st_STBY => 
+                if(appui_btn_i == "01") then
+                    next_st <= st_AUTO;
+                end if;
+            when st_AUTO =>
+                if (appui_btn_i == "01") then
+                    next_st <= st_STBY;
+                else if (appui_btn_i == "10") then
+                    next_st <= st_AUTO;
+                end if;             
+            when others => 
+                next_st <= st_STBY;
+        end case;
+    end process;
+
+    -- Mise à jour de l'état suivant 
+    process(clk_i, raz_i)
+    begin
+        if (raz_i = '1') then
+            current_st <= ;
+        elsif (rising_edge(clk_i)) then
+            current_st <= next_st;
+        end if;
+    end process;
+    
+    -- Calcul des sorties en fonction de l'état présent
+    cap_valid <= '1' when (current_st = st_AUTO and appui_btn_i = "10")
+            else '1' when current_st = st_STBY
+            else '0';
+
+    codeFonction_o <= "0000" when current_st = st_STBY 
+            else "0011" when current_st = st_AUTO;
+    
+end architecture rtl;

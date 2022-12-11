@@ -1,0 +1,68 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity ConversionVitesseVent is
+    port (
+        clk_i : in std_logic;
+        freq : in std_logic;
+        
+        vitesse_vent : out std_logic_vector(6 downto 0) --max front montant par sec = 250 --> 7bit
+    );
+end entity;
+
+architecture rtl of ConversionVitesseVent is
+    signal sec : std_logic_vector(25 downto 0);
+    signal rst_comp : std_logic;
+    signal re_freq : std_logic;
+    signal nbr_re_by_sec : std_logic_vector(6 downto 0) --max front montant par sec = 250 --> 7bit
+begin
+
+    --UUT
+    counter_inst_cascade : entity work.counter
+    -- compte le nombre de fronts montants
+    generic map (
+        N => 7 -- max 250 fronts montants en 1 seconde 
+    )
+    port map (
+        clk_i => clk_i,
+        srst_i => rst_comp,
+        en_i => re_freq,
+        qn_o => nbr_re_by_sec
+    );
+
+    counter_inst_horloge : entity work.counter
+    -- génération d'un signal toute les secondes
+    generic map (
+        N => 26 -- on veux compter jusqu'a 1s (--> 50 000 000 coups d'horloge) donc on a besoin de 26 bits
+    )
+    port map (
+        clk_i => clk_i,
+        srst_i => rst_comp,
+        en_i => '1',
+        qn_o => sec
+    );
+
+    edge_detector_inst : entity work.edge_detector
+    port map (
+        clk_i => clk_i,
+        en_i => '1',
+        E_i => freq,
+        re_o => re_freq,
+        fe_o => open
+    );
+
+    registre_inst : registre
+    generic map (
+        N => 7
+    )
+    port map (
+        clk_i => clk_i,
+        en_i => rst_comp,
+        E_i => nbr_re_by_sec,
+        S_o => vitesse_vent
+    );
+	       
+	rst_comp <= '1' when unsigned(sec) >= 49 999 999 else '0'; -- sur 26 bit = 67 108 863 or on veux s'arrêter à 1µs soit à 50 000 000 - 1 = 49 999 999 (-1 car on commence à compter à 0)  
+
+end architecture;

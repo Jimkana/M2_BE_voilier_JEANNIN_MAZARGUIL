@@ -1,0 +1,14 @@
+Partition Merge Status : Successful - Mon Sep 26 11:31:03 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : TP_voilier
+Top-level Entity Name : Conversion_Adaptation
+Family : Cyclone IV E
+Total logic elements : 989
+    Total combinational functions : 735
+    Dedicated logic registers : 584
+Total registers : 584
+Total pins : 12
+Total virtual pins : 0
+Total memory bits : 11,264
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

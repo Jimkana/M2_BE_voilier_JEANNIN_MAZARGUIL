@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "bus_avalon_f7_0_conduit_end_ledbabord_o",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_f7_0_conduit_end_ledstby_o",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_f7_0_conduit_end_ledtribord_o",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_f7_0_conduit_end_writeresponsevalid_n",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[0]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[5]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[6]",
+					"strict" : false
+				},
+				{
+					"name" : "leds_export[7]",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_f7_0_conduit_end_bp_babord_i",
+					"strict" : false
+				},
+				{
+					"name" : "clk_clk",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_f7_0_conduit_end_bp_tribord_i",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_f7_0_conduit_end_bp_stby_i",
+					"strict" : false
+				},
+				{
+					"name" : "reset_reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "buttons_export",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_f2_0_conduit_end_export",
+					"strict" : false
+				},
+				{
+					"name" : "bus_avalon_0_conduit_end_export",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

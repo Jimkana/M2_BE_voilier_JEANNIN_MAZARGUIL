@@ -1,0 +1,43 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tb_f7 is
+end entity tb_f7;
+
+architecture rtl of tb_f7 is
+    signal clk  : std_logic := '0';
+    signal raz  : std_logic := '0';
+    signal btn_AUTO  : std_logic_vector(1 downto 0) := "00";
+    signal btn_Babord  : std_logic_vector(1 downto 0) := "00";
+    signal btn_Tribord  : std_logic_vector(1 downto 0) := "00";
+
+begin
+
+    clk <= not clk after 10 ns;
+
+    gestion_bip_inst : entity work.gestion_bip
+    port map (
+      clk_i => clk,
+      raz_n_i => raz,
+      btn_AUTO_i => btn_AUTO,
+      btn_Babord_i => btn_Babord,
+      btn_Tribord_i => btn_Tribord,
+      bip_o => open
+    );
+  
+  
+
+    --stimulus
+    process 
+    begin
+        raz <= '0'; wait for 1 ms;
+        raz <= '1'; wait for 1 ms;
+        btn_AUTO <= "01"; wait for 10 ns;
+        btn_AUTO <= "00"; wait for 20 ms;
+        btn_Babord <= "10"; wait for 10 ns;
+        btn_Babord <= "00"; wait;
+
+    end process;
+
+end architecture;

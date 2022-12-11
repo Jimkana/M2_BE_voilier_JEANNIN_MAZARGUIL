@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Conversion_Adaptation is
+    port (
+        clk_i   : in std_logic;
+        pwm_i : in std_logic;
+
+        degres_o : out std_logic_vector (8 downto 0)
+    );
+end entity Conversion_Adaptation;
+
+architecture rtl of Conversion_Adaptation is   
+    signal temps_ms : std_logic_vector(5 downto 0);
+begin
+
+    conversion_degres_inst : entity work.conversion_degres
+    port map (
+        temps_ms_i => temps_ms,
+        degres_o => degres
+    );
+
+
+    cascadeCompteurs_inst : entity work.cascadeCompteurs
+    port map (
+        clk_i => clk_i,
+        pwm_i => pwm,
+        temps_ms_o => temps_ms
+    );
+
+
+end architecture;

@@ -1,0 +1,40 @@
+# Compile of registre.vhd was successful.
+# Load canceled
+# Compile of Machine_etat.vhd was successful.
+# Compile of gestion_leds.vhd was successful.
+vsim -gui work.tb_f7
+# vsim -gui work.tb_f7 
+# Start time: 23:36:33 on Dec 10,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_f7(rtl)
+# Loading work.gestion_barre(rtl)
+# Loading work.machine_etat(rtl)
+# Loading work.gestion_temps_appui_bouton(rtl)
+# Loading work.counter(rtl)
+# Loading work.edge_detector(rtl)
+# Loading work.basculed(rtl)
+# Loading work.gestion_bip(rtl)
+# Loading work.gestion_leds(rtl)
+add wave -position insertpoint sim:/tb_f7/gestion_barre_inst/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: luluj  Hostname: THE_BEST_1245  ProcessID: 20440
+#           Attempting to use alternate WLF file "./wlftg34337".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftg34337
+run 4
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_f7/gestion_barre_inst/gestion_leds_inst
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_f7/gestion_barre_inst/gestion_leds_inst
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_f7/gestion_barre_inst/gestion_leds_inst/gestion_led_mode_auto_inst
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_f7/gestion_barre_inst/gestion_leds_inst/gestion_led_mode_auto_inst
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_f7/gestion_barre_inst/gestion_bip_inst
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_f7/gestion_barre_inst/gestion_bip_inst
+run 400 ms

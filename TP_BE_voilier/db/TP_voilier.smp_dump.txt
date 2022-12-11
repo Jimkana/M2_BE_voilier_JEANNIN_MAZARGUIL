@@ -1,0 +1,34 @@
+
+State Machine - |soc|soc_cpu:cpu|soc_cpu_cpu:cpu|soc_cpu_cpu_nios2_oci:the_soc_cpu_cpu_nios2_oci|soc_cpu_cpu_debug_slave_wrapper:the_soc_cpu_cpu_debug_slave_wrapper|soc_cpu_cpu_debug_slave_tck:the_soc_cpu_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
+State Machine - |soc|bus_avalon_f7:bus_avalon_f7_0|gestion_barre:barre_inst|Machine_etat:Machine_etat_inst|current_st
+Name current_st.st_AUTO_tribord_10 current_st.st_AUTO_babord_10 current_st.st_AUTO_tribord_1 current_st.st_AUTO_babord_1 current_st.st_STBY_tribord current_st.st_STBY_babord current_st.st_AUTO current_st.st_STBY 
+current_st.st_STBY 0 0 0 0 0 0 0 0 
+current_st.st_AUTO 0 0 0 0 0 0 1 1 
+current_st.st_STBY_babord 0 0 0 0 0 1 0 1 
+current_st.st_STBY_tribord 0 0 0 0 1 0 0 1 
+current_st.st_AUTO_babord_1 0 0 0 1 0 0 0 1 
+current_st.st_AUTO_tribord_1 0 0 1 0 0 0 0 1 
+current_st.st_AUTO_babord_10 0 1 0 0 0 0 0 1 
+current_st.st_AUTO_tribord_10 1 0 0 0 0 0 0 1 
+
+State Machine - |soc|bus_avalon_f2:bus_avalon_f2_0|ConversionVitesseVent:anemometre_inst|def_etats:def_etats_inst|current_st
+Name current_st.st_stop_aq current_st.st_acquisition current_st.st_start_aq current_st.st_continu 
+current_st.st_continu 0 0 0 0 
+current_st.st_start_aq 0 0 1 1 
+current_st.st_acquisition 0 1 0 1 
+current_st.st_stop_aq 1 0 0 1 
+
+State Machine - |soc|bus_avalon:bus_avalon_0|Conversion_Adaptation:cap_inst|def_etats:def_etats_inst|current_st
+Name current_st.st_stop_aq current_st.st_acquisition current_st.st_start_aq current_st.st_continu 
+current_st.st_continu 0 0 0 0 
+current_st.st_start_aq 0 0 1 1 
+current_st.st_acquisition 0 1 0 1 
+current_st.st_stop_aq 1 0 0 1 
